@@ -1,0 +1,26 @@
+#banner{
+  width: 100%;
+}
+
+.container{
+  background-color: white;
+}
+
+footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #7C5621;
+  margin: 0px -12px;
+}
+
+footer > span {
+  color: white;
+}
+
+#title{
+  color: #7C5621;;
+  text-shadow: 3px 2px 5px #423524;
+}
