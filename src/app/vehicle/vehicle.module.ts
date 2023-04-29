@@ -7,14 +7,15 @@ import { SummaryVehicleComponent } from './summary-vehicle/summary-vehicle.compo
 
 @NgModule({
   declarations: [
-    ListVehiclesComponent,
-    SummaryVehicleComponent
+    SummaryVehicleComponent,
+    ListVehiclesComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule
   ],
   exports: [
+    SummaryVehicleComponent,
     ListVehiclesComponent
   ]
 })

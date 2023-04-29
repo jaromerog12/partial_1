@@ -28,7 +28,7 @@ export class Vehicle {
     kilometraje: number,
     color: string,
     imagen: string
-  ) {
+  ):Vehicle {
     let vehicle = new Vehicle();
     vehicle.id -= id;
     vehicle.marca = marca;
@@ -38,5 +38,6 @@ export class Vehicle {
     vehicle.kilometraje = kilometraje;
     vehicle.color = color;
     vehicle.imagen = imagen;
+    return vehicle;
   }
 }
