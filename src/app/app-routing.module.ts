@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppComponent} from "./app.component";
+import {ListVehiclesComponent} from "./vehicle/list-vehicles/list-vehicles.component";
 
 const routes: Routes = [
-  {path: '**', component: AppComponent, pathMatch: 'full'}
+  {path: '**', component: ListVehiclesComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
