@@ -10,6 +10,7 @@ import {Vehicle} from "../vehicle";
 export class ListVehiclesComponent {
 
   vehicles: Vehicle[] = [];
+  summary: (string | number)[][] = [];
   constructor(private service: VehicleService) {
     this.getVehicles();
   }
@@ -17,11 +18,26 @@ export class ListVehiclesComponent {
   getVehicles() {
     this.service.getVehicles().subscribe(
       {
-        next: data => {
+        next: (data: Vehicle[]) => {
           this.vehicles = data;
+          this.summary = this.getSummary(data);
         },
         error: () => alert("Error obteniendo listado de vehículos")
       }
     )
+  }
+
+  getSummary(vehicles: Vehicle[]): (string | number) [][] {
+    const uniqueBrand: string[] = [...new Set(vehicles.map((x) => x.marca))];
+    console.log(uniqueBrand);
+    const summary: (string | number) [][] = uniqueBrand.map(marca => [
+      marca,
+      vehicles.filter((v: Vehicle):boolean => v.marca === marca).length
+    ]);
+    return this.sortSummaryByQuantityDesc(summary);
+  }
+
+  sortSummaryByQuantityDesc(summary: Array<any>){
+    return summary.sort((m1, m2) => (m1[1] < m2[1] ? 1 : -1));
   }
 }
